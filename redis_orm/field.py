@@ -2,11 +2,13 @@
 import json
 import copy
 
+
 class _Field(object):
     def __init__(self, name, py_type, default):
         self.name = name
         self._py_type = py_type
         self.default = default
+
 
 class IntField(_Field):
     def __init__(self, name=None, py_type=int, default=0):
@@ -18,6 +20,7 @@ class IntField(_Field):
         except ValueError:
             return self.default
 
+
 class FloatField(_Field):
     def __init__(self, name=None, py_type=float, default=0.0):
         super(FloatField, self).__init__(name, py_type, default)
@@ -28,6 +31,7 @@ class FloatField(_Field):
         except ValueError:
             return self.default
 
+
 class StrField(_Field):
     def __init__(self, name=None, py_type=str, default=''):
         super(StrField, self).__init__(name, py_type, default)
@@ -37,6 +41,7 @@ class StrField(_Field):
             return str(value)
         except ValueError:
             return self.default
+
 
 class DictField(_Field):
     def __init__(self, name=None, py_type=dict, default=None):
@@ -50,6 +55,7 @@ class DictField(_Field):
         except ValueError:
             return self.default
 
+
 class ListField(_Field):
     def __init__(self, name=None, py_type=list, default=None):
         if default is None:
@@ -60,4 +66,4 @@ class ListField(_Field):
         try:
             return json.loads(value)
         except ValueError:
-            return self.default    
+            return self.default
