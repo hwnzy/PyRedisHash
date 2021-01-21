@@ -77,6 +77,7 @@ class RedisHash(Model):
 
     def __init__(self, **kwargs):
         self._db = REDIS[self.__db_name__]
+        self._key = self._KEY.format(self._db, '123456')
 
         data = {}
 
