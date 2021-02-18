@@ -1,2 +1,2 @@
 # PyRedisHash
-a python orm for python.
+a redis orm for python.
